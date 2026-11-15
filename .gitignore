@@ -217,3 +217,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# Local secrets written by `elevenlabs onboard`
+/.env.local
+
+# Node
+node_modules/
