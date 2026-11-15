@@ -1,0 +1,59 @@
+[TITLE: A bass that plays with the drums]
+[NOTE: Lines in square brackets that start with a capital word and a colon are cues. They are not spoken.]
+[NOTE: Shot in FL Studio. Target length: under five minutes.]
+
+In the last video, we used a kick drum to duck a pad. This time, the drums do a lot more. They'll open the filter, re-strike the notes, and by the end, shape a whole section of your song.
+
+[SCREEN: FL Studio, Shaver open, Init preset loaded. VOICING: MODE to LEGATO. GLIDE up slightly. AUTO on.]
+
+We're starting from Init again. For a bass, set Mode to Legato. That's one note at a time, and notes that overlap slide into each other without restarting the envelopes. Add a little Glide, with Auto switched on, so it only slides when notes overlap.
+
+[SCREEN: OSC 1 TYPE to Sync. Play a low note and sweep SHAPE slowly. Park it around 25.]
+
+Now the oscillator. Change the Type to Sync. This is the classic hard sync scream, a resonant peak sweeping up through the harmonics, and it doesn't need a second oscillator to do it. Shape moves the peak. Park it fairly low for now.
+
+[SCREEN: FILTER 1 stays Lowpass. CUTOFF well down. SLOPE to 48. A little BOOST.]
+
+Filter one stays a lowpass. Bring the cutoff well down, steepen the slope, and add a touch of Boost for a bump at the cutoff.
+
+[SCREEN: ENVELOPES & LFOS tab. ENV 2: short DECAY, low SUSTAIN, TO CUTOFF positive. Play a few notes.]
+
+Envelope two is wired to the filter. Give it a short decay and a low sustain, then turn To Cutoff up. Now every note opens bright, and snaps shut. That's our pluck.
+
+[SCREEN: MOD MATRIX tab. Slot 1: SOURCE Mod Wheel, DESTINATION OSC 1 Shape, AMOUNT about plus 60. Move the mod wheel. Point at the ring on the SHAPE knob.]
+
+One more thing before the drums. In the mod matrix, set slot one's source to Mod Wheel, its destination to oscillator one Shape, and bring the amount up. Push the wheel, and the sync peak climbs. See the coloured ring on the Shape knob? That shows where the modulation is taking it, right now.
+
+[SCREEN: SIDECHAIN section. Drop a one or two bar drum loop on the load area. It runs even with FL stopped. Raise MONITOR for a few beats, then return it to off.]
+
+Now, the drums. Drop a drum loop onto the sidechain panel. It locks to the project tempo. Turn Monitor up for a moment, to check it lines up with your beat... then back down. Shaver only needs to listen to it.
+
+[SCREEN: Hold a low note. Raise sidechain TO CUTOFF. Raise GAIN until the follower meter is lively.]
+
+Hold a note, and turn the sidechain's To Cutoff up. Every drum hit now pushes the filter open. If the meter is barely moving, give it more Gain. Already, the bass is following the groove.
+
+[SCREEN: RETRIGGER to FILTER. Keep holding one note.]
+
+Here's where it gets fun. Set Retrigger to Filter. Now each hit restarts the filter envelope, on whatever note you're holding. I'm holding one key... and the drums are playing the rhythm.
+
+[SCREEN: Raise THRESHOLD until only kick and snare trigger. Then raise HOLD a little.]
+
+Threshold decides what counts as a hit. Raise it until only the kick and snare get through, and the hi-hats are ignored. Hold sets the shortest gap between hits, which stops flams and rolls from double triggering.
+
+[SCREEN: RETRIGGER to BOTH. Hold one note, then change notes every bar.]
+
+Switch Retrigger to Both, and the amp envelope restarts too. One held note becomes a full bass line. Change the note, and the rhythm carries on.
+
+[SCREEN: Clear the loop with the x. Load a longer clip, up to 8 bars. Set BEATS to match its length, 32 at most.]
+
+One more trick. The sample doesn't have to be a short loop. Beats goes all the way up to thirty-two, which is eight full bars. Load the drum part for a whole section, fills and all. Or something that isn't drums at all, like a vocal phrase. Set Beats to match its length, and the modulation keeps evolving for eight bars, instead of repeating every bar.
+
+[SCREEN: Click SAVE. Type a name. Confirm.]
+
+Save the preset. And remember, the sidechain settings and the sample live in your project, not in the preset. So this drum part stays put, while you try other sounds over it.
+
+[SCREEN: With the loop still running, load Trigger Pluck, then Pump Chords, and play each.]
+
+Two factory presets, Trigger Pluck and Pump Chords, were built for exactly this. Load them with your loop still running, and hear what it does to them.
+
+That's Shaver's sidechain. Not just ducking, but a second pair of hands on the synth. Load something unexpected... and see where it takes you.
