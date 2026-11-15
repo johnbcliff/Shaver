@@ -1,0 +1,69 @@
+[TITLE: From Init to a pumping pad]
+[NOTE: Lines in square brackets that start with a capital word and a colon are cues. They are not spoken.]
+[NOTE: Shot in FL Studio. Target length: under five minutes.]
+
+Welcome to Shaver. In the next few minutes we'll build a preset from scratch: a wide, moving chord pad that pumps in time with a kick drum. Along the way, you'll see most of what makes this synth different.
+
+[SCREEN: FL Studio, Shaver open on a channel, Init preset loaded. Play a chord.]
+
+This is the Init preset. One saw wave, through a lowpass filter. Nothing special yet... but look at the strip across the top.
+
+[SCREEN: Hold a low note. Point at the PARTIALS strip.]
+
+Shaver is an additive synth. Every note is built from up to five hundred and twelve sine waves, called partials, and that display shows every one of them. The oscillators, the filters and the effects all work by setting the level of each partial. So nothing aliases, and nothing rings out of control. That's the theory. Let's make a sound.
+
+[SCREEN: OSC 1. Sweep SHAPE slowly from 100 down to 0 and back. Settle near 70.]
+
+Oscillator one first. With this type, the Shape knob morphs between a square and a saw. I'll leave it most of the way toward saw, so the filter has plenty of harmonics to work with.
+
+[SCREEN: Turn OSC 1 COLOUR a little left of centre.]
+
+Then Colour, tilted slightly to the left. That darkens the whole spectrum, which suits a pad.
+
+[SCREEN: Switch OSC 2 on. RATIO to x2. LEVEL to about 50 percent. FINE to about plus 6 cents.]
+
+Now switch on oscillator two. I'm setting its Ratio to two, which puts it an octave up, pulling its level down to about half, and nudging Fine up by a few cents. The two oscillators are separate sets of partials, so that small detune makes them beat against each other. Already, it sounds bigger.
+
+[SCREEN: FILTER 1. Pull CUTOFF down to roughly 2 kHz. Watch the curve move on the PARTIALS strip.]
+
+On to the filter. Pull the cutoff down, and watch the curve move across the partials. What you see is exactly what you hear.
+
+[SCREEN: Hold a chord. Step FILTER 1 TYPE to Comb Peak, then Formant, then Phaser, pausing on each. Return to Lowpass.]
+
+And because the filter is only a curve, it can take shapes no analogue filter could. A comb... A vowel... A phaser. All worth exploring later. For this pad, I'm going back to the lowpass.
+
+[SCREEN: ENVELOPES & LFOS tab. AMP ENV: raise ATTACK, then raise RELEASE. Play chords.]
+
+Down in the envelopes tab, the amp envelope needs a slower attack, so chords swell in, and a longer release, so they fade away instead of stopping dead.
+
+[SCREEN: SPECTRAL FX. Switch BEAT on, AMOUNT low. Switch SPREAD on, raise AMOUNT, set RATE slow.]
+
+Now, some movement. In the spectral effects section, Beat makes neighbouring partials drift against each other, which gives a held chord a slow shimmer. Spread pans the partials left and right across the stereo field, and keeps them moving. A little of each goes a long way... and Spread still sums cleanly to mono.
+
+That's a finished pad. Now for the part that sets Shaver apart.
+
+[SCREEN: SIDECHAIN section. Drag a kick WAV from the FL browser onto the load area.]
+
+The sidechain section lets another sound push the synth around. FL Studio doesn't give an instrument plugin a sidechain input, so Shaver brings its own. Drop a kick sample straight onto the panel.
+
+[SCREEN: Set BEATS to 1. The loop runs even with FL stopped. Point at the follower meter and LED.]
+
+That sample now loops in time with the project. Set Beats to one, and the kick lands on every beat. You won't hear it, because it's only there to drive the sidechain... but the meter shows it's working.
+
+[SCREEN: Hold a chord. Turn TO AMP down to about minus 80 percent.]
+
+Hold a chord, and turn To Amp down to around minus eighty percent... There's the pump. Every kick ducks the pad out of the way.
+
+[SCREEN: Sweep FOLLOWER RELEASE from short to long. Settle where it breathes with the tempo.]
+
+The follower's Release sets how quickly the pad comes back. Short is tight and choppy. Longer gives you a slow, breathing swell.
+
+[SCREEN: Click SAVE. Type a name. Confirm.]
+
+Last step: save it. Init is a factory preset, so Shaver asks for a new name.
+
+One thing to know. A preset stores the sound, but not the sidechain section, or the sample you loaded. Those stay with your project. That's deliberate: you can step through presets, and the pump keeps going on every one of them.
+
+[SCREEN: Step through three or four presets with the arrows while the kick keeps pumping.]
+
+So that's your first preset. Two oscillators, a filter, a little motion, and a kick that makes it breathe. In the next video, we'll hand the drums even more control... and let them play the bass line.

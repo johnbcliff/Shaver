@@ -11,9 +11,10 @@ import { createWriteStream } from "node:fs";
 import { mkdir, readFile } from "node:fs/promises";
 import { basename, dirname, extname, join } from "node:path";
 import { Readable } from "node:stream";
+import { fileURLToPath } from "node:url";
 import { parseArgs } from "node:util";
 
-const DEFAULT_VOICE_ID = "JBFqnCBsd6RMkjVDRZzb"; // George (pre-made, narrative)
+const DEFAULT_VOICE_ID = "SAz9YHcvj6GT2YYXdXww"; // River (pre-made; relaxed, neutral, informative)
 const DEFAULT_MODEL_ID = "eleven_v4";
 const OUTPUT_DIR = join("Assets", "Audio");
 const MAX_CHARS_PER_REQUEST = 3000;
@@ -67,8 +68,38 @@ function splitIntoRequests(text) {
   return requests;
 }
 
-const source = await readFile(inputPath, "utf8");
-const spokenText = extname(inputPath).toLowerCase() === ".md" ? markdownToSpokenText(source) : source.trim();
+/**
+ * Remove cue lines: a whole line like `[SCREEN: turn OSC 1 SHAPE to 60]`.
+ * Inline delivery tags such as `[excited]` have no colon and are kept for the voice model.
+ */
+function removeCueLines(text) {
+  return text
+    .split(/\r?\n/)
+    .filter((line) => !/^\s*\[[A-Z][A-Z ]*:.*\]\s*$/.test(line))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/**
+ * Swap words the voice misreads for a spelling it reads correctly.
+ * tools/pronunciations.json maps the word as written to the spelling to speak,
+ * for example { "Init": "in it" }. Matching is whole-word and case-sensitive.
+ */
+async function applyPronunciations(text) {
+  const listPath = join(dirname(fileURLToPath(import.meta.url)), "pronunciations.json");
+  const respellings = JSON.parse(await readFile(listPath, "utf8"));
+  for (const [written, spoken] of Object.entries(respellings)) {
+    const escaped = written.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    text = text.replace(new RegExp(`\\b${escaped}\\b`, "g"), spoken);
+  }
+  return text;
+}
+
+const source = removeCueLines(await readFile(inputPath, "utf8"));
+const spokenText = await applyPronunciations(
+  extname(inputPath).toLowerCase() === ".md" ? markdownToSpokenText(source) : source,
+);
 
 if (!spokenText) {
   console.error(`Nothing to narrate in ${inputPath}.`);
@@ -77,7 +108,9 @@ if (!spokenText) {
 
 if (options["dry-run"]) {
   console.log(spokenText);
-  console.log(`\n(${spokenText.length} characters; no audio made)`);
+  const words = spokenText.split(/\s+/).length;
+  const minutes = (words / 150).toFixed(1); // about 150 spoken words per minute
+  console.log(`\n(${words} words, roughly ${minutes} minutes; ${spokenText.length} characters; no audio made)`);
   process.exit(0);
 }
 
